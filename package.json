@@ -1,0 +1,39 @@
+{
+  "name": "seatlock",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx apps/api/src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:migrate": "tsx apps/api/src/db/migrate.ts",
+    "invariants": "tsx apps/api/src/db/invariants.ts",
+    "audit:verify": "tsx apps/api/src/db/audit-verify.ts",
+    "seed": "tsx apps/api/src/db/seed.ts",
+    "race": "tsx apps/api/src/db/race.ts",
+    "e2e": "playwright test",
+"a11y": "playwright test"
+  },
+  "workspaces": [
+    "apps/api",
+    "apps/web",
+    "packages/shared"
+  ],
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.10.2",
+    "axe-playwright": "^2.2.2",
+    "playwright": "^1.65.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "argon2": "^0.45.2",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

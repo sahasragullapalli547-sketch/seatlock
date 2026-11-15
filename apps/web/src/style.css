@@ -1,0 +1,22 @@
+:root { color: #f8f3e8; background: #101515; font-family: Inter, ui-sans-serif, system-ui, sans-serif; --acid: #c9f05a; --muted: #9daaa2; }
+* { box-sizing: border-box; } body { margin: 0; min-width: 320px; background: radial-gradient(circle at 80% 10%, #273a35, transparent 38%), #101515; }
+main { max-width: 900px; margin: auto; padding: 48px 20px 80px; } .eyebrow { color: var(--acid); font-weight: 800; letter-spacing: .14em; font-size: .75rem; }
+h1 { font-size: clamp(3rem, 11vw, 7rem); line-height: .9; letter-spacing: -.08em; margin: 50px 0 24px; } h1 em { color: var(--acid); font-style: normal; }
+.lede { color: var(--muted); font-size: 1.15rem; max-width: 520px; line-height: 1.6; } section { margin-top: 72px; } h2 { font-size: 2rem; }
+.card { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 20px; margin: 12px 0; border: 1px solid #394941; border-radius: 16px; background: #18211f; } h3 { margin: 0 0 6px; } .card span { color: var(--muted); }
+button, .lab { min-height: 44px; border: 0; border-radius: 999px; padding: 12px 18px; font-weight: 800; cursor: pointer; } button { background: var(--acid); color: #101515; } .lab { display: inline-block; margin-top: 48px; color: var(--acid); border: 1px solid var(--acid); text-decoration: none; } .skip { position: absolute; left: -999px; } .skip:focus { left: 10px; top: 10px; } :focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (max-width: 520px) { .card { align-items: flex-start; flex-direction: column; } h1 { margin-top: 32px; } }
+.lab-panel { margin-top: 42px; padding: 22px; border: 1px solid #53685b; border-radius: 20px; background: #18211f; }
+.lab-heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; } .lab-heading h2 { margin: 0; }
+.status, .event span:last-child { color: var(--muted); } .timeline { margin-top: 24px; max-height: 430px; overflow: auto; display: grid; gap: 6px; }
+.event { display: grid; grid-template-columns: 72px 42px 1fr; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 9px; background: #202b28; font-size: .88rem; }
+.event strong { color: #ff887b; } .event.winner { background: #31411e; } .event.winner strong { color: var(--acid); }
+.result { margin-top: 18px; padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 5px; } .result.passed { background: #31411e; color: var(--acid); } .result.failed { background: #4a211e; color: #ffb0a7; }
+@media (max-width: 520px) { .lab-heading { align-items: flex-start; flex-direction: column; } .event { grid-template-columns: 62px 38px 1fr; font-size: .78rem; } }
+.topnav { display: flex; align-items: center; gap: 18px; margin-bottom: 56px; } .topnav a { color: var(--acid); text-decoration: none; } .topnav span, .muted { color: var(--muted); } .topnav a:last-child { margin-left: auto; }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; } .section-head a { color: var(--acid); }
+.compact { padding: 14px 18px; } .compact div { display: flex; flex-direction: column; gap: 4px; } .compact small { color: var(--muted); } .actions { flex-direction: row !important; }
+.secondary { background: transparent; color: var(--acid); border: 1px solid #53685b; } .audit-row { display: flex; justify-content: space-between; gap: 15px; padding: 13px 0; border-bottom: 1px solid #2a3732; } .audit-row span { color: var(--muted); font-size: .85rem; }
+.invite-code { padding: 14px; border: 1px dashed var(--acid); color: var(--acid); word-break: break-all; }
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 56px; } .feature-grid div { display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 14px; background: #18211f; } .feature-grid span { color: var(--muted); line-height: 1.4; }
+@media (max-width: 520px) { .topnav { margin-bottom: 35px; } .section-head { align-items: flex-start; flex-direction: column; } .feature-grid { grid-template-columns: 1fr; } .audit-row { flex-direction: column; gap: 4px; } }
