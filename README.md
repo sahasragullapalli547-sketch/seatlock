@@ -1,34 +1,47 @@
 # SeatLock
 
-Race-proof hackathon team formation backed only by PostgreSQL 16.
+SeatLock is a race-proof hackathon team formation platform. It allows users to discover teams, request to join, accept invitations, manage memberships, and receive real-time updates.
 
-## Quickstart
+The main goal of the project is to guarantee that team capacity remains correct even when many users try to join the same team simultaneously.
 
-```powershell
-npm install
-docker compose up -d db
-$env:DATABASE_URL="postgres://seatlock:seatlock@localhost:5432/seatlock"
-$env:ALLOW_DEMO_AUTH="true"
-npm run db:migrate
-npm run seed
-npm test
-```
+## Features
 
-The join path locks a team row, updates capacity and membership in one
-transaction, and commits its audit/outbox records atomically. Run
-`npm run invariants` and `npm run audit:verify` against a running database.
+- Create and manage hackathon teams
+- Request to join a team
+- Accept or decline join requests
+- Join teams using secure invitations
+- Prevent users from joining multiple teams in one hackathon
+- PostgreSQL row-level locking for concurrency safety
+- Idempotent join operations
+- JWT authentication
+- Argon2id password hashing
+- Real-time updates using Server-Sent Events
+- Tamper-evident audit logs
+- Transactional outbox events
+- Leader succession when a leader leaves
+- Team soft deletion when the last member leaves
+- Rate limiting and API metrics
+- Database invariant verification
+- Race Lab for testing simultaneous join requests
 
-For production, set `ALLOW_DEMO_AUTH=false` and use the Bearer token returned by
-`POST /auth/register` or `POST /auth/login`.
+## Technology Stack
 
-## Proof commands
+- TypeScript
+- Node.js
+- Fastify
+- PostgreSQL 16
+- React
+- Vite
+- TanStack React Query
+- Docker Compose
+- Vitest
+- Playwright
 
-```powershell
-npm run seed
-npm run race
-npm run invariants
-npm run audit:verify
-```
+## Project Structure
 
-The race proof uses 50 concurrent PostgreSQL-backed callers against one final
-seat and expects exactly one success and 49 clean conflicts.
+```text
+apps/api/       Backend API and database logic
+apps/web/       React frontend
+packages/shared Shared validation schemas and types
+docs/           Design documents and architecture decisions
+ops/            Load-testing scripts
